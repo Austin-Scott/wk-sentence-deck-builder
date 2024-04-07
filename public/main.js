@@ -249,6 +249,7 @@ function runFilter() {
 let currentSentence = null
 let isShowingFurigana = false
 let currentTranslation = 0
+let showingDetails = false
 function nextSentence() {
     if(filteredSentences.length > 0) {
         currentSentence = filteredSentences[Math.floor(Math.random() * filteredSentences.length)]
@@ -268,6 +269,7 @@ function nextSentence() {
         hide(altTranslationsButton)
         hide(wkDetailsButton)
         wkDetailsCollapse.hide()
+        showingDetails = false
         hide(wkDetailsElement)
 
         hide(addToDeckButton)
@@ -298,6 +300,16 @@ function showAllDetails() {
     hide(showDetailsButton)
     show(addToDeckButton)
     show(nextSentenceButton)
+}
+
+function toggleWkDetails() {
+    if(showingDetails) {
+        wkDetailsCollapse.hide()
+        showingDetails = false
+    } else {
+        wkDetailsCollapse.show()
+        showingDetails = true
+    }
 }
 
 function exportDeck() {
