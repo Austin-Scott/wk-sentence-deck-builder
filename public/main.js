@@ -324,7 +324,7 @@ function getDateString() {
 
 function exportDeck() {
     if(deck && deck.length > 0) {
-        downloadStringAsCsvFile(getDateString(), Papa.unparse(deck, {
+        downloadStringAsCsvFile(`JP sentence deck export ${getDateString()}`, Papa.unparse(deck, {
             header: true,
             newline: '\n'
         }))
