@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WK Sentence Deck Creator</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class="fixed-top d-flex p-2 flex-row">
+        <button type="button" class="btn btn-primary justify-content-start" data-bs-toggle="modal" data-bs-target="#deckModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stack"
+                viewBox="0 0 16 16">
+                <path
+                    d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.6.6 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.6.6 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.6.6 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535z" />
+                <path
+                    d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.6.6 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0z" />
+            </svg>
+            Deck
+            <span class="badge text-bg-secondary">0</span>
+        </button>
+        <span class="justify-content-center flex-grow-1 text-center">
+            240,312 available sentences
+        </span>
+        <button type="button" class="btn btn-primary justify-content-end" data-bs-toggle="modal" data-bs-target="#filterModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel"
+                viewBox="0 0 16 16">
+                <path
+                    d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z" />
+            </svg>
+            Filter
+        </button>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="text-center">
+            <!-- The main sentence display (may have furigana) -->
+            <h1><ruby>今日<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>は<ruby>日曜日<rp>(</rp><rt>にちようび</rt><rp>)</rp></ruby>だよ。</h1>
+            <!-- English sentence 1 -->
+            <h5>Today is Sunday.</h5>
+            <!-- English sentence 2 -->
+            <h5>Today is Sunday.</h5>
+            <!-- English sentence 3 -->
+            <h5>Today is Sunday.</h5>
+        </div>
+    </div>
+    
+    <div class="fixed-bottom d-flex">
+        <!-- Answer is hidden -->
+        <button class="btn btn-primary flex-fill py-3">Show All Details</button>
+        <!-- Answer is being displayed -->
+        <button class="btn btn-danger flex-fill py-3 d-none">Add to deck</button>
+        <button class="btn btn-success flex-fill py-3 d-none">Next sentence</button>
+    </div>
+    
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="filterModalLabel">Filter</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+    
+                    <h5>WaniKani Level</h5>
+                    <div class="mb-3 row align-items-center">
+                        <label for="minWaniKaniLevel" class="col-auto">Min</label>
+                        <div class="col">
+                            <input type="number" class="form-control" id="minWaniKaniLevel" disabled>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-check-input" type="checkbox" id="enableMinWaniKaniLevel"
+                                onchange="document.getElementById('minWaniKaniLevel').disabled = !this.checked;">
+                        </div>
+                    </div>
+                    <div class="mb-3 row align-items-center">
+                        <label for="maxWaniKaniLevel" class="col-auto">Max</label>
+                        <div class="col">
+                            <input type="number" class="form-control" id="maxWaniKaniLevel" disabled>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-check-input" type="checkbox" id="enableMaxWaniKaniLevel"
+                                onchange="document.getElementById('maxWaniKaniLevel').disabled = !this.checked;">
+                        </div>
+                    </div>
+
+                    <h5>Word Count</h5>
+                    <div class="mb-3 row align-items-center">
+                        <label for="minWordCount" class="col-auto">Min</label>
+                        <div class="col">
+                            <input type="number" class="form-control" id="minWordCount" disabled>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-check-input" type="checkbox" id="enableMinWordCount"
+                                onchange="document.getElementById('minWordCount').disabled = !this.checked;">
+                        </div>
+                    </div>
+                    <div class="mb-3 row align-items-center">
+                        <label for="maxWordCount" class="col-auto">Max</label>
+                        <div class="col">
+                            <input type="number" class="form-control" id="maxWordCount" disabled>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-check-input" type="checkbox" id="enableMaxWordCount"
+                                onchange="document.getElementById('maxWordCount').disabled = !this.checked;">
+                        </div>
+                    </div>
+
+                    <h5>Character Count</h5>
+                    <div class="mb-3 row align-items-center">
+                        <label for="minCharacterCount" class="col-auto">Min</label>
+                        <div class="col">
+                            <input type="number" class="form-control" id="minCharacterCount" disabled>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-check-input" type="checkbox" id="enableMinCharacterCount"
+                                onchange="document.getElementById('minCharacterCount').disabled = !this.checked;">
+                        </div>
+                    </div>
+                    <div class="mb-3 row align-items-center">
+                        <label for="maxCharacterCount" class="col-auto">Max</label>
+                        <div class="col">
+                            <input type="number" class="form-control" id="maxCharacterCount" disabled>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-check-input" type="checkbox" id="enableMaxCharacterCount"
+                                onchange="document.getElementById('maxCharacterCount').disabled = !this.checked;">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success flex-fill">Run filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="deckModal" tabindex="-1" aria-labelledby="deckModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deckModalLabel">Deck</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5>Export deck as CSV for importing into Anki</h5>
+                    <button type="button" class="btn btn-success">Export</button>
+                    <h5>Clear deck</h5>
+                    <button type="button" class="btn btn-danger">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="lib/popper/popper.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="main.js"></script>
+  </body>
+</html>
