@@ -313,8 +313,24 @@ function toggleWkDetails() {
     }
 }
 
-function exportDeck() {
+function getDateString() {
+    const d = new Date(date)
+    return [
+        d.getFullYear(),
+        ('0' + (d.getMonth() + 1)).slice(-2),
+        ('0' + d.getDate()).slice(-2)
+    ].join('-')
+}
 
+function exportDeck() {
+    if(deck && deck.length > 0) {
+        downloadStringAsCsvFile(getDateString(), Papa.unparse(deck, {
+            header: true,
+            newline: '\n'
+        }))
+    } else {
+        window.alert('Nothing to export!')
+    }
 }
 
 function clearDeck() {
