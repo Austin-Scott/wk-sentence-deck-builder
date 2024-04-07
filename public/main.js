@@ -52,6 +52,7 @@ const enableMaxCharacterCount = 'enableMaxCharacterCount'
 
 const wkDetailsCollapse = new bootstrap.Collapse(document.getElementById(wkDetailsElement))
 const bootstrapFilterModal = new bootstrap.Modal(document.getElementById(filterModal))
+const bootstrapDeckModal = new bootstrap.Modal(document.getElementById(deckModal))
 
 // Utility
 
@@ -321,6 +322,7 @@ function clearDeck() {
         deck.splice(0, deck.length)
         saveDeck()
         setInnerHtml(deckCountElement, "0")
+        bootstrapDeckModal.hide()
     }
 }
 
