@@ -238,20 +238,20 @@ function runFilter() {
         filteredSentences.push(s)
     })
     setInnerHtml(sentenceCountElement, filteredSentences.length)
-    // bootstrap.Modal.getInstance(document.getElementById(filterModal)).hide()
+    (new bootstrap.Modal(document.getElementById(filterModal))).hide()
     nextSentence()
 }
 
 let currentSentence = null
 let isShowingFurigana = false
-let currentTranslation = 1
+let currentTranslation = 0
 function nextSentence() {
     if(filteredSentences.length > 0) {
         currentSentence = filteredSentences[Math.floor(Math.random() * filteredSentences.length)]
         setInnerHtml(jpSentenceElement, currentSentence.jpSentence)
         isShowingFurigana = false
         setInnerHtml(enSentenceElement, currentSentence.enTranslation1)
-        currentTranslation = 1
+        currentTranslation = 0
         setInnerHtml(wkDetailsButton, `Level ${currentSentence.maxKanjiAndVocabWaniKaniLevel}`)
         // TODO: render WK details
 
@@ -259,6 +259,7 @@ function nextSentence() {
         hide(enSentenceElement)
         hide(altTranslationsButton)
         hide(wkDetailsButton)
+        (new bootstrap.Collapse(document.getElementById(wkDetailsElement))).hide()
 
         hide(addToDeckButton)
         hide(nextSentenceButton)
