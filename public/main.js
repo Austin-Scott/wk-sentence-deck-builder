@@ -172,7 +172,7 @@ function loadDeck() {
     if(existingDeck) {
         deck.push(...JSON.parse(existingDeck))
     }
-    setInnerHtml(deckCountElement, existingDeck.length)
+    setInnerHtml(deckCountElement, deck.length)
 }
 function saveDeck() {
     localStorage.setItem('deck', JSON.stringify(deck))
