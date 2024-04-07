@@ -21,7 +21,7 @@
             <span class="badge text-bg-secondary">0</span>
         </button>
         <span class="justify-content-center flex-grow-1 text-center">
-            240,312 available sentences
+            Loading sentences...
         </span>
         <button type="button" class="btn btn-primary justify-content-end" data-bs-toggle="modal" data-bs-target="#filterModal">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel"
@@ -37,21 +37,25 @@
         <div class="text-center">
             <!-- The main sentence display (may have furigana) -->
             <h1><ruby>今日<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>は<ruby>日曜日<rp>(</rp><rt>にちようび</rt><rp>)</rp></ruby>だよ。</h1>
-            <!-- English sentence 1 -->
             <h5>Today is Sunday.</h5>
-            <!-- English sentence 2 -->
-            <h5>Today is Sunday.</h5>
-            <!-- English sentence 3 -->
-            <h5>Today is Sunday.</h5>
+            <button type="button" class="btn btn-secondary btn-sm my-2 mx-2">Alt Translations</button>
+            <button type="button" class="btn btn-secondary btn-sm my-2 mx-2" data-bs-toggle="collapse" data-bs-target="#wkDetailsCard">Level 18</button>
+
+            <div class="collapse" id="wkDetailsCard">
+                <div class="card card-body mx-2">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user
+                    activates the relevant trigger.
+                </div>
+            </div>
         </div>
     </div>
     
     <div class="fixed-bottom d-flex">
         <!-- Answer is hidden -->
-        <button class="btn btn-primary flex-fill py-3">Show All Details</button>
+        <button id="showDetailsButton" class="btn btn-primary flex-fill py-3" onclick="showAllDetails()">Show All Details</button>
         <!-- Answer is being displayed -->
-        <button class="btn btn-danger flex-fill py-3 d-none">Add to deck</button>
-        <button class="btn btn-success flex-fill py-3 d-none">Next sentence</button>
+        <button id="addToDeckButton" class="btn btn-danger flex-fill py-3 d-none" onclick="addToDeck()">Add to deck</button>
+        <button id="nextSentenceButton" class="btn btn-success flex-fill py-3 d-none" onclick="nextSentence()">Next sentence</button>
     </div>
     
     <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
