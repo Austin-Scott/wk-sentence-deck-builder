@@ -54,10 +54,50 @@ function hide(elementId) {
     document.getElementById(elementId).classList.add('d-none')
 }
 
+function setInnerHtml(elementId, innerHtml) {
+    document.getElementById(elementId).innerHTML = innerHtml
+}
+
+function getCheckboxValue(elementId) {
+    document.getElementById(elementId).checked
+}
+
+function setCheckboxValue(elementId, checked) {
+    document.getElementById(elementId).checked = checked
+}
+
 // Core functions
 
-window.onload = function load() {
+const sentences = []
 
+function loadSentences() {
+    return new Promise((resolve, reject) => {
+        Papa.parse('data/sentences-2024-04-06.csv', {
+            download: true,
+            worker: true,
+            header: true,
+            step: function(row) {
+                sentences.push(row.data)
+            },
+            complete: function() {
+                resolve()
+            }
+        })
+    })
+}
+
+window.onload = async function load() {
+    await loadSentences()
+    console.log(sentences)
+}
+
+function refreshForm() {
+    document.getElementById('minWaniKaniLevel').disabled = !getCheckboxValue(enableMinWaniKaniLevel)
+    document.getElementById('maxWaniKaniLevel').disabled = !getCheckboxValue(enableMaxWaniKaniLevel)
+    document.getElementById('minWordCount').disabled = !getCheckboxValue(enableMinWordCount)
+    document.getElementById('maxWordCount').disabled = !getCheckboxValue(enableMaxWordCount)
+    document.getElementById('minCharacterCount').disabled = !getCheckboxValue(enableMinCharacterCount)
+    document.getElementById('maxCharacterCount').disabled = !getCheckboxValue(enableMaxCharacterCount)
 }
 
 function runFilter() {
