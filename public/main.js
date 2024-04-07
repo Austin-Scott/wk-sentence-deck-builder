@@ -244,7 +244,8 @@ function nextSentence() {
         setInnerHtml(wkDetailsButton, `Level ${currentSentence.maxKanjiAndVocabWaniKaniLevel}`)
         // TODO: render WK details
 
-        hide(jpSentenceElement)
+        show(jpSentenceElement)
+        hide(enSentenceElement)
         hide(altTranslationsButton)
         hide(wkDetailsButton)
 
