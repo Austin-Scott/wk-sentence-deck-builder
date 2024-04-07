@@ -227,7 +227,7 @@ function runFilter() {
         filteredSentences.push(s)
     })
     setInnerHtml(sentenceCountElement, filteredSentences.length)
-    bootstrap.Modal.getInstance(document.getElementById(filterModal)).hide()
+    // bootstrap.Modal.getInstance(document.getElementById(filterModal)).hide()
     nextSentence()
 }
 
