@@ -74,7 +74,6 @@ function loadSentences() {
     return new Promise((resolve, reject) => {
         Papa.parse('https://austin-scott.github.io/wk-sentence-deck-builder/public/data/sentences-2024-04-06.csv', {
             download: true,
-            worker: true,
             header: true,
             step: function(row) {
                 sentences.push(row.data)
