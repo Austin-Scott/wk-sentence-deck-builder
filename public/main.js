@@ -202,30 +202,30 @@ const filteredSentences = []
 function runFilter() {
     saveFilterSettings()
     filteredSentences.splice(0, filteredSentences.length)
-    filteredSentences.push(...sentences.filter(s => {
+    sentences.forEach(s => {
         if(getCheckboxValue(enableMinWaniKaniLevel)) {
-            if(s.maxKanjiAndVocabWaniKaniLevel < getNumberInputValue(minWaniKaniLevel)) return false
+            if(s.maxKanjiAndVocabWaniKaniLevel < getNumberInputValue(minWaniKaniLevel)) return
         }
         if(getCheckboxValue(enableMaxWaniKaniLevel)) {
-            if(s.maxKanjiAndVocabWaniKaniLevel > getNumberInputValue(maxWaniKaniLevel)) return false
+            if(s.maxKanjiAndVocabWaniKaniLevel > getNumberInputValue(maxWaniKaniLevel)) return
         }
 
         if(getCheckboxValue(enableMinWordCount)) {
-            if(s.wordCount < getNumberInputValue(minWordCount)) return false
+            if(s.wordCount < getNumberInputValue(minWordCount)) return
         }
         if(getCheckboxValue(enableMaxWordCount)) {
-            if(s.wordCount > getNumberInputValue(maxWordCount)) return false
+            if(s.wordCount > getNumberInputValue(maxWordCount)) return
         }
 
         if(getCheckboxValue(enableMinCharacterCount)) {
-            if(s.characterCount < getNumberInputValue(minCharacterCount)) return false
+            if(s.characterCount < getNumberInputValue(minCharacterCount)) return
         }
         if(getCheckboxValue(enableMaxCharacterCount)) {
-            if(s.characterCount > getNumberInputValue(maxCharacterCount)) return false
+            if(s.characterCount > getNumberInputValue(maxCharacterCount)) return
         }
 
-        return true
-    }))
+        filteredSentences.push(s)
+    })
     setInnerHtml(sentenceCountElement, filteredSentences.length)
     bootstrap.Modal.getInstance(document.getElementById(filterModal)).hide()
     nextSentence()
