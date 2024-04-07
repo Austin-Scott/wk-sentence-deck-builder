@@ -74,7 +74,7 @@ function setCheckboxValue(elementId, checked) {
 }
 
 function getNumberInputValue(elementId) {
-    return document.getElementById(elementId).value
+    return parseInt(document.getElementById(elementId).value)
 }
 
 function setNumberInputValue(elementId, value) {
