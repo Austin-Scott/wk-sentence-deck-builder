@@ -20,7 +20,7 @@ const nextSentenceButton = 'nextSentenceButton'
 function onShowAllDetails() {
     hide(showDetailsButton)
     show(addToDeckButton)
-    show(addToDeckButton)
+    show(nextSentenceButton)
 }
 
 function onAddToDeck() {
