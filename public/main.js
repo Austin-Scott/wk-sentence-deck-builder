@@ -90,7 +90,7 @@ function downloadStringAsCsvFile(title, text){
 	hiddenElement.click()
 }
 
-function jpSetenceClick() {
+function jpSentenceClick() {
     if(!isShowingFurigana) {
         setInnerHtml(jpSentenceElement, currentSentence.jpSentenceWithFurigana)
         isShowingFurigana = true
