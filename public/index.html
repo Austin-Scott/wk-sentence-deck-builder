@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-auto">
                             <input class="form-check-input" type="checkbox" id="enableMinWaniKaniLevel"
-                                onchange="document.getElementById('minWaniKaniLevel').disabled = !this.checked;">
+                                onchange="refreshForm()">
                         </div>
                     </div>
                     <div class="mb-3 row align-items-center">
@@ -85,7 +85,7 @@
                         </div>
                         <div class="col-auto">
                             <input class="form-check-input" type="checkbox" id="enableMaxWaniKaniLevel"
-                                onchange="document.getElementById('maxWaniKaniLevel').disabled = !this.checked;">
+                                onchange="refreshForm()">
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
                         </div>
                         <div class="col-auto">
                             <input class="form-check-input" type="checkbox" id="enableMinWordCount"
-                                onchange="document.getElementById('minWordCount').disabled = !this.checked;">
+                                onchange="refreshForm()">
                         </div>
                     </div>
                     <div class="mb-3 row align-items-center">
@@ -107,7 +107,7 @@
                         </div>
                         <div class="col-auto">
                             <input class="form-check-input" type="checkbox" id="enableMaxWordCount"
-                                onchange="document.getElementById('maxWordCount').disabled = !this.checked;">
+                                onchange="refreshForm()">
                         </div>
                     </div>
 
@@ -119,7 +119,7 @@
                         </div>
                         <div class="col-auto">
                             <input class="form-check-input" type="checkbox" id="enableMinCharacterCount"
-                                onchange="document.getElementById('minCharacterCount').disabled = !this.checked;">
+                                onchange="refreshForm()">
                         </div>
                     </div>
                     <div class="mb-3 row align-items-center">
@@ -129,7 +129,7 @@
                         </div>
                         <div class="col-auto">
                             <input class="form-check-input" type="checkbox" id="enableMaxCharacterCount"
-                                onchange="document.getElementById('maxCharacterCount').disabled = !this.checked;">
+                                onchange="refreshForm()">
                         </div>
                     </div>
                 </div>
@@ -159,6 +159,7 @@
     
     <script src="lib/popper/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/papaparse/papaparse.min.js"></script>
 
     <script src="main.js"></script>
   </body>
