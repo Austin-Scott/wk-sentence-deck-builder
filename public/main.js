@@ -1,24 +1,36 @@
 
-// Bottom answer buttons
-// const showDetailsButton = document.getElementById('showDetailsButton')
-// const addToDeckButton = document.getElementById('addToDeckButton')
-// const nextSentenceButton = document.getElementById('nextSentenceButton')
+// Utility
 
-
-function showAllDetails() {
-    (document.getElementById('showDetailsButton')).classList.add('d-none')
-    (document.getElementById('addToDeckButton')).classList.remove('d-none')
-    (document.getElementById('nextSentenceButton')).classList.remove('d-none')
+function show(elementId) {
+    document.getElementById(elementId).classList.remove('d-none')
 }
 
-function addToDeck() {
-    (document.getElementById('addToDeckButton')).classList.add('d-none')
-    (document.getElementById('nextSentenceButton')).classList.add('d-none')
-    (document.getElementById('showDetailsButton')).classList.remove('d-none')
+function hide(elementId) {
+    document.getElementById(elementId).classList.add('d-none')
 }
 
-function nextSentence() {
-    (document.getElementById('addToDeckButton')).classList.add('d-none')
-    (document.getElementById('nextSentenceButton')).classList.add('d-none')
-    (document.getElementById('showDetailsButton')).classList.remove('d-none')
+// Buttons
+
+const showDetailsButton = 'showDetailsButton'
+const addToDeckButton = 'addToDeckButton'
+const nextSentenceButton = 'nextSentenceButton'
+
+// Button handlers
+
+function onShowAllDetails() {
+    hide(showDetailsButton)
+    show(addToDeckButton)
+    show(addToDeckButton)
+}
+
+function onAddToDeck() {
+    hide(addToDeckButton)
+    hide(nextSentenceButton)
+    show(showDetailsButton)
+}
+
+function onNextSentence() {
+    hide(addToDeckButton)
+    hide(nextSentenceButton)
+    show(showDetailsButton)
 }
