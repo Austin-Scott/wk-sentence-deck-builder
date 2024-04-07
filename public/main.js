@@ -206,24 +206,24 @@ function runFilter() {
     filteredSentences.splice(0, filteredSentences.length)
     sentences.forEach(s => {
         if(getCheckboxValue(enableMinWaniKaniLevel)) {
-            if(s.maxKanjiAndVocabWaniKaniLevel < getNumberInputValue(minWaniKaniLevel)) return
+            if(Number(s.maxKanjiAndVocabWaniKaniLevel) < Number(getNumberInputValue(minWaniKaniLevel))) return
         }
         if(getCheckboxValue(enableMaxWaniKaniLevel)) {
-            if(s.maxKanjiAndVocabWaniKaniLevel > getNumberInputValue(maxWaniKaniLevel)) return
+            if(Number(s.maxKanjiAndVocabWaniKaniLevel) > Number(getNumberInputValue(maxWaniKaniLevel))) return
         }
 
         if(getCheckboxValue(enableMinWordCount)) {
-            if(s.wordCount < getNumberInputValue(minWordCount)) return
+            if(Number(s.wordCount) < Number(getNumberInputValue(minWordCount))) return
         }
         if(getCheckboxValue(enableMaxWordCount)) {
-            if(s.wordCount > getNumberInputValue(maxWordCount)) return
+            if(Number(s.wordCount) > Number(getNumberInputValue(maxWordCount))) return
         }
 
         if(getCheckboxValue(enableMinCharacterCount)) {
-            if(s.characterCount < getNumberInputValue(minCharacterCount)) return
+            if(Number(s.characterCount) < Number(getNumberInputValue(minCharacterCount))) return
         }
         if(getCheckboxValue(enableMaxCharacterCount)) {
-            if(s.characterCount > getNumberInputValue(maxCharacterCount)) return
+            if(Number(s.characterCount) > Number(getNumberInputValue(maxCharacterCount))) return
         }
 
         filteredSentences.push(s)
