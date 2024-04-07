@@ -314,7 +314,7 @@ function toggleWkDetails() {
 }
 
 function getDateString() {
-    const d = new Date(date)
+    const d = new Date()
     return [
         d.getFullYear(),
         ('0' + (d.getMonth() + 1)).slice(-2),
