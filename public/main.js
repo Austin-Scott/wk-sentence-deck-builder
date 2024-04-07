@@ -302,10 +302,10 @@ function showAltTranslation() {
         currentTranslation = 0
     }
     if(currentTranslation == 2) {
-        setInnerHtml(jpSentenceElement, currentSentence.enTranslation3)
+        setInnerHtml(enSentenceElement, currentSentence.enTranslation3)
     } else if(currentTranslation == 1) {
-        setInnerHtml(jpSentenceElement, currentSentence.enTranslation2)
+        setInnerHtml(enSentenceElement, currentSentence.enTranslation2)
     } else {
-        setInnerHtml(jpSentenceElement, currentSentence.enTranslation1)
+        setInnerHtml(enSentenceElement, currentSentence.enTranslation1)
     }
 }
