@@ -50,7 +50,7 @@ const enableMaxCharacterCount = 'enableMaxCharacterCount'
 
 // Bootstrap elements
 
-const wkDetailsCollapse = new bootstrap.Collapse(document.getElementById('wkDetailsCard'))
+const wkDetailsCollapse = new bootstrap.Collapse(document.getElementById('wkDetailsCard'), {toggle: false})
 const bootstrapFilterModal = new bootstrap.Modal(document.getElementById(filterModal))
 const bootstrapDeckModal = new bootstrap.Modal(document.getElementById(deckModal))
 
