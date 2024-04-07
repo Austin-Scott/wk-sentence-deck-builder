@@ -1,3 +1,48 @@
+// Buttons
+
+const showDetailsButton = 'showDetailsButton'
+const addToDeckButton = 'addToDeckButton'
+const nextSentenceButton = 'nextSentenceButton'
+
+const exportDeckButton = 'exportDeckButton'
+const clearDeckButton = 'clearDeckButton'
+
+const runFilterButton = 'runFilterButton'
+
+const deckButton = 'deckButton'
+const filterButton = 'filterButton'
+
+const altTranslationsButton = 'altTranslationsButton'
+const wkDetailsButton = 'wkDetailsButton'
+
+// Text elements
+
+const sentenceCountElement = 'sentenceCountElement'
+const deckCountElement = 'deckCountElement'
+const jpSentenceElement = 'jpSentenceElement'
+const enSentenceElement = 'enSentenceElement'
+const wkDetailsElement = 'wkDetailsElement'
+
+// Filter form inputs
+
+const minWaniKaniLevel = 'minWaniKaniLevel'
+const enableMinWaniKaniLevel = 'enableMinWaniKaniLevel'
+
+const maxWaniKaniLevel = 'maxWaniKaniLevel'
+const enableMaxWaniKaniLevel = 'enableMaxWaniKaniLevel'
+
+const minWordCount = 'minWordCount'
+const enableMinWordCount = 'enableMinWordCount'
+
+const maxWordCount = 'maxWordCount'
+const enableMaxWordCount = 'enableMaxWordCount'
+
+const minCharacterCount = 'minCharacterCount'
+const enableMinCharacterCount = 'enableMinCharacterCount'
+
+const maxCharacterCount = 'maxCharacterCount'
+const enableMaxCharacterCount = 'enableMaxCharacterCount'
+
 
 // Utility
 
@@ -9,28 +54,42 @@ function hide(elementId) {
     document.getElementById(elementId).classList.add('d-none')
 }
 
-// Buttons
+// Core functions
 
-const showDetailsButton = 'showDetailsButton'
-const addToDeckButton = 'addToDeckButton'
-const nextSentenceButton = 'nextSentenceButton'
+window.onload = function load() {
 
-// Button handlers
-
-function onShowAllDetails() {
-    hide(showDetailsButton)
-    show(addToDeckButton)
-    show(nextSentenceButton)
 }
 
-function onAddToDeck() {
-    hide(addToDeckButton)
-    hide(nextSentenceButton)
-    show(showDetailsButton)
+function runFilter() {
+
 }
 
-function onNextSentence() {
-    hide(addToDeckButton)
-    hide(nextSentenceButton)
-    show(showDetailsButton)
+function addCurrentSentenceToDeck() {
+
+}
+
+function showAllDetails() {
+
+}
+
+function nextSentence() {
+
+}
+
+function loadDeck() {
+
+}
+
+function exportDeck() {
+
+}
+
+function clearDeck() {
+    if(window.confirm('Are you sure you want to clear your deck?')) {
+
+    }
+}
+
+function showAltTranslation() {
+
 }
