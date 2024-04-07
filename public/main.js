@@ -255,7 +255,7 @@ function nextSentence() {
         setInnerHtml(wkDetailsButton, `Level ${currentSentence.maxKanjiAndVocabWaniKaniLevel}`)
         let wkDetailsHtml = `Max kanji level: ${currentSentence.kanjiWaniKaniLevel} </br>`
         wkDetailsHtml += `Max vocab level: ${currentSentence.vocabWaniKaniLevel} </br>`
-        wkDetailsHtml += `Detected WK vocab: ` + currentSentence.waniKaniVocab.split(', ').map(v => `<a href='https://www.wanikani.com/vocabulary/${v} target='_blank'>${v}</a>`).join(', ') + ' </br>'
+        wkDetailsHtml += `Detected WK vocab: ` + currentSentence.waniKaniVocab.split(', ').map(v => `<a href="https://www.wanikani.com/vocabulary/${v}" target="_blank">${v}</a>`).join(', ') + ' </br>'
         setInnerHtml(wkDetailsElement, wkDetailsHtml)
 
 
