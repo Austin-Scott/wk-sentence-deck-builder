@@ -70,7 +70,7 @@ function getCheckboxValue(elementId) {
 
 function setCheckboxValue(elementId, checked) {
     const element = document.getElementById(elementId)
-    element.checked = value
+    element.checked = checked
 }
 
 function getNumberInputValue(elementId) {
