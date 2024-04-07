@@ -48,6 +48,10 @@ const enableMinCharacterCount = 'enableMinCharacterCount'
 const maxCharacterCount = 'maxCharacterCount'
 const enableMaxCharacterCount = 'enableMaxCharacterCount'
 
+// Bootstrap elements
+
+const wkDetailsCollapse = new bootstrap.Collapse(document.getElementById(wkDetailsElement))
+const bootstrapFilterModal = new bootstrap.Modal(document.getElementById(filterModal))
 
 // Utility
 
@@ -237,8 +241,8 @@ function runFilter() {
 
         filteredSentences.push(s)
     })
-    setInnerHtml(sentenceCountElement, filteredSentences.length);
-    (new bootstrap.Modal(document.getElementById(filterModal))).hide()
+    setInnerHtml(sentenceCountElement, filteredSentences.length)
+    bootstrapFilterModal.hide()
     nextSentence()
 }
 
@@ -263,8 +267,8 @@ function nextSentence() {
         hide(enSentenceElement)
         hide(altTranslationsButton)
         hide(wkDetailsButton)
-        hide(wkDetailsElement);
-        (new bootstrap.Collapse(document.getElementById(wkDetailsElement))).hide()
+        wkDetailsCollapse.hide()
+        hide(wkDetailsElement)
 
         hide(addToDeckButton)
         hide(nextSentenceButton)
