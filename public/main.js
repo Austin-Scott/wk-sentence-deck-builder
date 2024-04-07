@@ -288,6 +288,7 @@ function clearDeck() {
     if(window.confirm('Are you sure you want to clear your deck?')) {
         deck.splice(0, deck.length)
         saveDeck()
+        setInnerHtml(deckCountElement, "0")
     }
 }
 
