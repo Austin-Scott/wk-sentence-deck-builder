@@ -90,6 +90,15 @@ function downloadStringAsCsvFile(title, text){
 	hiddenElement.click()
 }
 
+function jpSetenceClick() {
+    if(!isShowingFurigana) {
+        setInnerHtml(jpSentenceElement, currentSentence.jpSentenceWithFurigana)
+        isShowingFurigana = true
+    } else {
+        window.open(`https://jisho.org/search/${currentSentence.jpSentence}`, '_blank').focus()
+    }
+}
+
 // Core functions
 
 // {
