@@ -64,11 +64,11 @@ function setInnerHtml(elementId, innerHtml) {
 }
 
 function getCheckboxValue(elementId) {
-    document.getElementById(elementId).checked
+    document.getElementById(elementId).value
 }
 
 function setCheckboxValue(elementId, checked) {
-    document.getElementById(elementId).checked = checked
+    document.getElementById(elementId).value = checked
 }
 
 function getNumberInputValue(elementId) {
