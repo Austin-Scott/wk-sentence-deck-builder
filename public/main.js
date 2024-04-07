@@ -237,7 +237,7 @@ function runFilter() {
 
         filteredSentences.push(s)
     })
-    setInnerHtml(sentenceCountElement, filteredSentences.length)
+    setInnerHtml(sentenceCountElement, filteredSentences.length);
     (new bootstrap.Modal(document.getElementById(filterModal))).hide()
     nextSentence()
 }
@@ -253,12 +253,17 @@ function nextSentence() {
         setInnerHtml(enSentenceElement, currentSentence.enTranslation1)
         currentTranslation = 0
         setInnerHtml(wkDetailsButton, `Level ${currentSentence.maxKanjiAndVocabWaniKaniLevel}`)
-        // TODO: render WK details
+        let wkDetailsHtml = `Max kanji level: ${currentSentence.kanjiWaniKaniLevel} </br>`
+        wkDetailsHtml += `Max vocab level: ${currentSentence.vocabWaniKaniLevel} </br>`
+        wkDetailsHtml += `Detected WK vocab: ` + currentSentence.waniKaniVocab.split(', ').map(v => `<a href='https://www.wanikani.com/vocabulary/${v} target='_blank'>${v}</a>`).join(', ') + ' </br>'
+        setInnerHtml(wkDetailsElement, wkDetailsHtml)
+
 
         show(jpSentenceElement)
         hide(enSentenceElement)
         hide(altTranslationsButton)
         hide(wkDetailsButton)
+        hide(wkDetailsElement);
         (new bootstrap.Collapse(document.getElementById(wkDetailsElement))).hide()
 
         hide(addToDeckButton)
@@ -284,6 +289,7 @@ function showAllDetails() {
         show(altTranslationsButton)
     }
     show(wkDetailsButton)
+    show(wkDetailsElement)
 
     hide(showDetailsButton)
     show(addToDeckButton)
